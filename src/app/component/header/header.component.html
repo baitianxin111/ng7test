@@ -1,0 +1,45 @@
+<p>
+  header works! 头组件插入测试
+ {{student}}{{msg}}
+</p>
+<!-- 属性使用 -->
+<div [id]="id" [title]="msg">调试工具看看我的属性</div>
+<h1>{{title}}</h1>
+<ul *ngIf="arr.length>0">
+  <li *ngFor="let item of arr;let i = index">{{item.name}} --{{item.age}}== {{i}}</li>
+</ul>
+<h3>template 循环</h3>
+<ul>
+  <li template="ngFor let item of arr">
+{{item}}
+</li>
+ </ul>
+ <ul [ngSwitch]="score">
+  <li *ngSwitchCase="1">已支付</li>
+  <li *ngSwitchCase="2">订单已经确认</li> <li *ngSwitchCase="3">已发货</li>
+  <li *ngSwitchDefault>无效</li>
+  </ul>
+  <button class="button" (click)="getData()"> 点击按钮触发事件
+  </button>
+  <button class="button" (click)="setData()"> 点击按钮设置数据
+  </button>
+  <h3>表单事件</h3>
+  <input
+    type="text"   
+    (keyup)="keyUpFn($event)"/>
+    <br/>
+  <h3>数据绑定</h3>
+  <input type="text" [(ngModel)]="inputValue"  (keyup)="keyUpFn($event)"/> {{inputValue}}
+   <br/>
+   <div [ngClass]="{'red': flag, 'blue': !flag}">
+这是一个 div </div>
+<p>所谓的管道(以前的过滤器);  {{today | date:'yyyy-MM-dd HH:mm:ss' }} </p>
+<!--转换成大写-->
+<p>{{str | uppercase}}</p>
+<p>
+ 对象序列化 {{ { name: 'semlinker' } | json }}
+</p> 
+<p>{{ 'semlinker' | slice:0:3 }}</p> 
+<p>管道链
+  {{ 'semlinker' | slice:0:3 | uppercase }}
+  </p> 
